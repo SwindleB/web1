@@ -3,7 +3,7 @@ class PostsController < ApplicationController
     before_action :current_user, only: :destroy
     
     def new 
-        @post = Post.new
+        @post = Post.new(post_params)
     end
     
     def create
@@ -28,10 +28,7 @@ class PostsController < ApplicationController
     
     private
     def post_params # allows certain data to be passed via form.
-        params.require(:post).permit(:user_id, :image, :content, :destroy)
+        params.require(:post).permit(:user_id, :photo, :music, :movie, :content, :destroy)
         
-    end
-    def image 
-    end
     
 end
